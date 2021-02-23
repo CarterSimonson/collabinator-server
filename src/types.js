@@ -8,7 +8,7 @@ const types = gql`
     }
 
     type Mutation {
-        pushInteraction(action: InteractionAction!, userId: ID!, timestamp: String!, data: JSON!): Interaction!
+        pushInteraction(userId: ID!, timestamp: String!, data: JSON!): Interaction!
     }
 
     type Subscription {
@@ -19,14 +19,7 @@ const types = gql`
         interactions: [Interaction]
     }
 
-    enum InteractionAction {
-        ADD,
-        UNDO,
-        REDO
-    }
-
     type Interaction {
-        action: InteractionAction!,
         userId: ID!,
         timestamp: String!,
         data: JSON!
